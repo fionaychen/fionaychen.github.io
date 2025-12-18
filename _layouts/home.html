@@ -2,65 +2,38 @@
 layout: default
 ---
 
-<header class="site-masthead">
-  {% if site.title %}
-    <h1>
-      {{ site.title }}
-    </h1>
-  {% endif %}
-</header>
-
 <main class="home" id="main" role="main" aria-label="Content">
-
-  <div class="intro-text">
-    <p>Hello! I am a PhD candidate in Business Economics at Harvard University.
-      My research is in labor economics, with a focus on the economics of AI.
-    </p>
-
-    <p>I completed my B.S. in Mathematics and in Economics at MIT in 2021. </p>
-
-    <p>You can access my <a href="/fionachen.github.io/assets/cv/cv.pdf">CV here</a>.</p>
-
-  </div>
-
-  <div class="profile-image">
-    <img src="{{ site.baseurl }}/assets/images/headshot.jpg" alt="Fiona Chen">
-  </div>
-
-  <section class="research-section">
-    <h2>Working papers</h2>
-    <em>Artificial Intelligence in the Firm</em>
-    <p> 
-    with James Stratton
-    <p> 
-    <p> 
-    <em> </em>
-
-    <p> 
-  </section>
-
-  <!-- <section class="research-section">
-    <h2>Works in progress</h2>
-    <em>Artificial Intelligence in the Firm</em>
-    <p> 
-    with James Stratton
-    <p> 
-    <p> 
-    <em> </em>
-
-    <p> 
-  </section> -->
-
-  <section class="policy-section">
-    <h2>Policy</h2>
-    
-  </section>
-
-  <section class="misc-section">
-    <h2>Miscellaneous</h2>
-    
-  </section>
-
   
+  <div class="profile-container">
+    <div class="profile-image">
+      <img src="/fionachen.github.io/assets/images/headshot.png" alt="headshot">
+    </div>
+    
+    <div class="profile-content">
+      <!-- Name as first section header in right column -->
+      <h2 class="content-title">Fiona Yifei Chen</h2>
+      
+      <div class="intro-text">
+        <p>Hello! I am a Ph.D. candidate in Business Economics at Harvard University. My research is in labor economics, with a focus on the economics of AI.</p>
+        
+        <p>I completed my B.S. in Mathematics and in Economics at MIT in 2021.</p>
+        
+        <p>You can reach me at <a href="mailto:fionachen@g.harvard.edu">fionachen@g.harvard.edu</a> and access my <a href="/fionachen.github.io/assets/cv.pdf">CV here</a>.</p>
+      </div>
+
+      <section class="research-section">
+        <h2 class="content-title">Working papers</h2>
+        <p><em>Artificial Intelligence in the Firm</em><br>with James Stratton</p>
+      </section>
+
+      <section class="policy-section">
+        <h2 class="content-title">Policy</h2>
+      </section>
+
+      <section class="misc-section">
+        <h2 class="content-title">Miscellaneous</h2>
+      </section>
+    </div>
+  </div>
 
 </main>

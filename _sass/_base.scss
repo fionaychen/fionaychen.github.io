@@ -4,6 +4,7 @@ body {
   font-family: $font-family;
   font-size: 1.1em;
   line-height: 1.4;
+  padding-top: 2em;  // Adds space at the very top
 }
 
 h1 {
@@ -117,11 +118,6 @@ figcaption {
   @include divider;
 }
 
-.home {
-  max-width: 30em;
-  margin: auto;
-  padding: 0.5em 0.5em;
-}
 
 .content-title {
   font-size: 1.5em;
@@ -165,19 +161,66 @@ figcaption {
   }
 }
 
+// Remove top margin from first paragraph
+.intro-text p:first-child {
+  margin-top: 0;
+}
+
 .intro-text p {
-  margin-bottom: 1em;  // Adds 1em space after each paragraph
+  margin-bottom: 1em;
+}
+
+// Profile container - photo and text side by side
+.profile-container {
+  display: flex;
+  gap: 2em;
+  align-items: flex-start;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.profile-content {
+  flex: 1;
+  margin-top: 0;
+  padding-top: 0;
+  
+  // Remove top margin from first heading
+  > .content-title:first-child {
+    margin-top: 0;
+  }
 }
 
 .profile-image {
-  text-align: center;
-  margin: 2em auto 1em;
-  
+  flex-shrink: 0;
+  margin-top: 2.6em;  // Push image down to align with "Hello!"
+  padding-top: 0;
+
   img {
-    width: 200px;           // Set size
-    border-radius: 50%;     // Makes it circular
-    object-fit: cover;      // Crops nicely
+    width: 200px;
+    object-fit: cover;
     display: block;
-    margin: 0 auto;
+    margin: 0;
+    
+    @media (max-width: 768px) {
+      margin: 0 auto 2em;
+    }
   }
+}
+
+// Adjust home max-width for two-column layout
+.home {
+  max-width: 45em;  // Make wider to accommodate both columns
+  margin: auto;
+  padding: 2em 1em;
+}
+
+.page-title {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0 0 1em 0;  // Bottom margin only
+  color: $text-color;
+  text-align: left;
 }
