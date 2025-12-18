@@ -1,26 +1,31 @@
 body {
   background: $brand-color;
-  color: $text-color;
+  color: $muted-text-color;
   font-family: $font-family;
-  font-size: 1.3125em;
-  line-height: 1.5;
+  font-size: 1.1em;
+  line-height: 1.4;
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 2em;
   margin: .5em auto;
+  color: $text-color
 }
 
 h2 {
-  font-size: 2em;
-  margin: 1em auto;
-  text-align: center;
+  font-size: 1.4em;
+  margin-top: 0.8em;
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  text-align: left;
+  color: $text-color;
 }
 
 h3 {
-  font-size: 1.5em;
-  margin: 1.3333em auto;
-  text-align: center;
+  font-size: 1.2em;
+  margin: 1em auto;
+  text-align: left;
+  color: $text-color;
 }
 
 h4 {
@@ -113,15 +118,15 @@ figcaption {
 }
 
 .home {
-  max-width: 24em;
+  max-width: 30em;
   margin: auto;
-  padding: 4em 1em;
+  padding: 0.5em 0.5em;
 }
 
 .content-title {
-  font-size: 2em;
-  margin-bottom: 2em;
-  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 0em;
+  text-align: left;
 }
 
 .post-date {
@@ -158,4 +163,8 @@ figcaption {
     border-color: $text-color;
     margin-top: 0;
   }
+}
+
+.intro-text p {
+  margin-bottom: 1em;  // Adds 1em space after each paragraph
 }

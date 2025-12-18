@@ -2,69 +2,60 @@
 layout: default
 ---
 
-{% if site.data.menu and site.paginate and site.paginate_path and paginator.page > 1 %}
-{% elsif site.paginate and site.paginate_path and paginator.page > 1 %}
-  {% include back-link.html %}
-{% else %}
-  <header class="site-masthead">
-    {% if site.title %}
-      <h1>
-        {{ site.title }}
-      </h1>
-    {% endif %}
-    {% if site.title %}
-      <h2>
-        {{ site.description }}
-      </h2>
-    {% endif %}
-  </header>
-{% endif %}
+<header class="site-masthead">
+  {% if site.title %}
+    <h1>
+      {{ site.title }}
+    </h1>
+  {% endif %}
+</header>
 
 <main class="home" id="main" role="main" aria-label="Content">
 
-  <h1 class="content-title divided">
-    {% if site.paginate and site.paginate_path and paginator.page > 1 %}
-      Page {{ paginator.page }}
-    {% else %}
-      Contents
-    {% endif %}
-  </h1>
+  <div class="intro-text">
+    <p>Hello! I am a PhD candidate in Business Economics at Harvard University.
+      My research is in labor economics, with a focus on the economics of AI.
+    </p>
 
-  {% if site.paginate and site.paginate_path %}
+    <p>I completed my B.S. in Mathematics and in Economics at MIT in 2021. </p>
+
+    <p>You can access my <a href="/Users/fichen/Harvard University Dropbox/Fiona Chen/3. Harvard - Other/fionachen.github.io/assets/cv/cv.pdf">CV here</a>.</p>
+  </div>
+
+  <section class="research-section">
+    <h2>Working papers</h2>
+    <em>Artificial Intelligence in the Firm</em>
+    <p> 
+    with James Stratton
+    <p> 
+    <p> 
+    <em> </em>
+
+    <p> 
+  </section>
+
+  <!-- <section class="research-section">
+    <h2>Works in progress</h2>
+    <em>Artificial Intelligence in the Firm</em>
+    <p> 
+    with James Stratton
+    <p> 
+    <p> 
+    <em> </em>
+
+    <p> 
+  </section> -->
+
+  <section class="policy-section">
+    <h2>Policy</h2>
     
-    <ul class="post-list">
-      {% for post in paginator.posts %}
-        {% include post-list-item.html %}
-      {% endfor %}
-    </ul>
+  </section>
 
-    {% if paginator.total_pages > 1 %}
+  <section class="misc-section">
+    <h2>Miscellaneous</h2>
+    
+  </section>
 
-      <div class="post-pagination">
-        {% if paginator.next_page %}
-          <a href="{{ paginator.next_page_path | prepend: site.baseurl  }}" class="pagination-next btn">&lang;&nbsp;Older</a>
-        {% else %}
-          <span>&nbsp;</span>
-        {% endif %}
-        <span class="pagination-number">{{ paginator.page }} of {{ paginator.total_pages }}</span>
-        {% if paginator.previous_page %}
-          <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="pagination-previous btn">Newer&nbsp;&rang;</a>
-        {% else %}
-          <span>&nbsp;</span>
-        {% endif %}
-      </div>
-
-    {% endif %}
-
-  {% else %}
-
-    <ul class="post-list">
-      {% for post in site.posts %}
-        {% include post-list-item.html %}
-      {% endfor %}
-    </ul>
   
-  {% endif %}
-    
 
 </main>
