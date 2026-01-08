@@ -2,7 +2,7 @@ body {
   background: $brand-color;
   color: $muted-text-color;
   font-family: $font-family;
-  font-size: 1.1em;
+  font-size: 1.0em;
   line-height: 1.4;
   padding-top: 2em;  // Adds space at the very top
 }
@@ -24,7 +24,9 @@ h2 {
 
 h3 {
   font-size: 1.2em;
-  margin: 1em auto;
+  margin-top: 0.8em;
+  margin-bottom: 0.2em;
+  font-weight: bold;
   text-align: left;
   color: $text-color;
 }
