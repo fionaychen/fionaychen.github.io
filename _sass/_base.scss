@@ -1,22 +1,25 @@
+// Global typography and page spacing
 body {
   background: $brand-color;
   color: $text-color;
   font-family: $font-family;
   font-style: normal;
-  font-size: 1.0em;
+  font-weight: 330;
+  font-size: 1.1em;
+  letter-spacing: 0.012em;
   line-height: 1.4;
   padding-top: 2em;  // Adds space at the very top
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 2.5em;
   margin: .5em auto;
   font-weight: 500;
   color: $text-color
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1.4em;
   margin-top: 0.8em;
   margin-bottom: 0.2em;
   font-weight: 500;
@@ -25,7 +28,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.1em;
+  font-size: 1.3em;
   margin-top: 0.8em;
   margin-bottom: 0.2em;
   font-weight: 500;
@@ -59,19 +62,62 @@ em {
 }
 
 strong {
-  font-weight: bold;
+  font-weight: 500;
 }
 
 a {
   color: $text-color;
   text-decoration: none;
-  border-bottom: 1px solid rgba($text-color, 0.35);
+  // border-bottom: 1px solid rgba($text-color, 0.35);
   transition: border-color 0.15s ease, color 0.15s ease;
 }
 
 a:hover {
   color: $muted-text-color;
   border-bottom-color: rgba($muted-text-color, 0.35);
+  font-style:italic;
+  letter-spacing: 0.03em
+}
+
+.paper-title {
+  color: $text-color;
+  font-weight: 500;
+}
+
+a.paper-title {
+  color: $paper-title-color;
+  border-bottom: none;
+}
+
+a.paper-title:hover {
+  color: darken($paper-title-color, 10%);
+  border-bottom: none;
+}
+
+a.paper-reference {
+  color: $muted-text-color;
+  border-bottom: none;
+  font-style: normal;
+}
+
+a.paper-reference::before {
+  content: "[";
+  font-style: normal;
+}
+
+a.paper-reference::after {
+  content: "]";
+  font-style: normal;
+}
+
+a.paper-reference:hover {
+  color: darken($muted-text-color, 10%);
+  font-style: italic;
+}
+
+a.paper-reference:hover::before,
+a.paper-reference:hover::after {
+  font-style: normal;
 }
 
 a:focus {
@@ -131,15 +177,17 @@ figcaption {
 }
 
 .main-title {
-  font-size: 1.5em;
-  margin-bottom: 0em;
+  font-size: 1.6em;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.1em;
   text-align: left;
 }
 
 .section-title {
   font-size: 1.2em;
-  margin-top: 1.2em;
-  margin-bottom: 0em;
+  letter-spacing: 0.018em;
+  margin-top: 1.4em;
+  margin-bottom: 0.1em;
   text-align: left;
 }
 
@@ -186,7 +234,7 @@ figcaption {
 
 .section-text p {
   font-style: normal;
-  margin-bottom: 0.75em;
+  margin-bottom: 1em;
 }
 
 // Profile container - photo and text side by side
@@ -214,11 +262,11 @@ figcaption {
 
 .profile-image {
   flex-shrink: 0;
-  margin-top: 3.7em;  // Push image down to align with "Hello!"
+  margin-top: 4em;  // Push image down to align with "Hello!"
   padding-top: 0;
 
   img {
-    width: 200px;
+    width: 22em;
     object-fit: cover;
     display: block;
     margin: 0;
@@ -238,7 +286,7 @@ figcaption {
 
 // Adjust home max-width for two-column layout
 .home {
-  max-width: 45em;  // Make wider to accommodate both columns
+  max-width: 55em;  // Preserve the wider text column alongside the larger photo
   margin: auto;
   padding: 2em 1em;
 }
@@ -249,4 +297,13 @@ figcaption {
   margin: 0 0 1em 0;  // Bottom margin only
   color: $text-color;
   text-align: left;
+}
+
+a.accent-text {
+  color: $paper-title-color;
+  border-bottom: none
+}
+
+a.accent-text:hover {
+  color: darken($paper-title-color, 10%);
 }
