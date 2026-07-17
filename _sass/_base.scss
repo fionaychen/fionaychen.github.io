@@ -177,9 +177,9 @@ figcaption {
 }
 
 .main-title {
-  font-size: 1.6em;
+  font-size: 1.8em;
   letter-spacing: 0.02em;
-  margin-bottom: 0.1em;
+  margin-bottom: 0.15em;
   text-align: left;
 }
 
@@ -262,11 +262,12 @@ figcaption {
 
 .profile-image {
   flex-shrink: 0;
-  margin-top: 4em;  // Push image down to align with "Hello!"
+  margin-top: 4.55em;  // Push image down to align with "Hello!"
+  margin-right: 0em; // Adjust spacing to text
   padding-top: 0;
 
   img {
-    width: 22em;
+    width: 20em;
     object-fit: cover;
     display: block;
     margin: 0;
@@ -286,7 +287,7 @@ figcaption {
 
 // Adjust home max-width for two-column layout
 .home {
-  max-width: 55em;  // Preserve the wider text column alongside the larger photo
+  max-width: 53em;  // Preserve the wider text column alongside the larger photo
   margin: auto;
   padding: 2em 1em;
 }
