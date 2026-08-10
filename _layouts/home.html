@@ -2,6 +2,113 @@
 layout: default
 ---
 
+<style>
+  .section-toggle-button {
+    appearance: none;
+    background: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  .section-toggle-heading {
+    margin: 1.4em 0 0.1em;
+  }
+
+  .section-toggle-button:hover,
+  .section-toggle-button:focus-visible {
+    color: #6e5a45;
+    outline: none;
+  }
+
+  .section-toggle-label {
+    align-items: baseline;
+    display: flex;
+    gap: 0.45rem;
+  }
+
+  .section-toggle-icon {
+    display: inline-block;
+    font-size: 0.9em;
+    min-width: 0.75rem;
+    text-align: center;
+  }
+
+  .section-toggle-button[data-icon="plus-minus"][aria-expanded="true"] .section-toggle-icon::before {
+    content: "-";
+  }
+
+  .section-toggle-button[data-icon="plus-minus"][aria-expanded="false"] .section-toggle-icon::before {
+    content: "+";
+  }
+
+  .section-toggle-button[data-icon="chevron"][aria-expanded="true"] .section-toggle-icon::before {
+    content: "⌄";
+  }
+
+  .section-toggle-button[data-icon="chevron"][aria-expanded="false"] .section-toggle-icon::before {
+    content: "›";
+  }
+
+  .section-toggle-button[data-icon="none"] .section-toggle-label {
+    gap: 0;
+  }
+
+  .section-toggle-button[data-icon="none"] .section-toggle-icon {
+    display: none;
+  }
+
+  .abstract-toggle {
+    background: transparent;
+    border: none;
+    color: #7a7a7a;
+    cursor: pointer;
+    font: inherit;
+    font-size: inherit;
+    margin: 0;
+    padding: 0;
+  }
+
+  .abstract-toggle::before {
+    content: "[";
+    font-style: normal;
+  }
+
+  .abstract-toggle::after {
+    content: "]";
+    font-style: normal;
+  }
+
+  .abstract-toggle:hover,
+  .abstract-toggle:focus-visible {
+    color: #5f5f5f;
+    font-style: italic;
+    outline: none;
+  }
+
+  .abstract-toggle:hover::before,
+  .abstract-toggle:hover::after,
+  .abstract-toggle:focus-visible::before,
+  .abstract-toggle:focus-visible::after {
+    font-style: normal;
+  }
+
+  .paper-abstract {
+    color: inherit;
+    display: block;
+    font-size: 1em;
+    margin: 0.02rem 0 0;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+</style>
+
 <main class="home" id="main" role="main" aria-label="Content">
   
   <div class="profile-container">
@@ -44,9 +151,21 @@ layout: default
         </p> -->
       </div>
 
-      <section class="research-section">
-        <h3 class="section-title">Research</h3>
-        <div class="section-text">
+      <section class="research-section" id="research-section">
+        <h3 class="section-title section-toggle-heading">
+          <button
+            class="section-toggle-button"
+            type="button"
+            data-icon="plus-minus"
+            aria-expanded="false"
+            aria-controls="research-content">
+            <span class="section-toggle-label">
+              <span class="section-toggle-icon" aria-hidden="true"></span>
+              <span>Research</span>
+            </span>
+          </button>
+        </h3>
+        <div class="section-text" id="research-content" hidden>
         <p><a class="paper-title" href="/jellyfish.pdf">Artificial Intelligence in the Firm: Bottlenecks in Software Production</a>
           <br>
           with James Stratton, January 2026
@@ -56,33 +175,61 @@ layout: default
           <a class="paper-reference" href="https://jellyfish.co/blog/harvard-jellyfish-ai-is-making-developers-faster/">Jellyfish 1</a>
           <a class="paper-reference" href="https://jellyfish.co/blog/does-ai-assistance-mean-engineers-are-doing-less-coding-work-maybe-not/">Jellyfish 2</a>
           <a class="paper-reference" href="https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/07/oecd-employment-outlook-2026_a41e8b9f/7e710f54-en.pdf">OECD</a>
-          
+          <br>
+          <button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-jellyfish">Abstract</button>
+          <div class="paper-abstract" id="abstract-jellyfish" hidden>
+            We study the impacts of AI coding assistants and agents on software engineering work, using a novel proprietary dataset from an engineering analytics platform, covering 300 million work events, including GitHub coding activity, Jira issues, and Google Calendar events, across 718 firms. We use a staggered difference-in-differences design, exploiting variation in firm-level adoption timing of AI coding assistants and agents. Both technologies increase coding productivity. However, productivity gains do not fully pass through to changes in software output or employment. For AI agents, this incomplete pass-through reflects a bottleneck from code review: review times increase, a larger share of code updates require revisions, and reviews involve more comments. We develop a model of software production to rationalize these results, in which AI affects both productivity and quality of intermediate outputs, and in turn can generate a review bottleneck and limit pass-through.
+          </div>
         </p>
 
         <p><span class="paper-title">Task Assignment and Career Advancement</span>
           <br>
           with James Stratton 
           <br>
+          <button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-task-assignment">Abstract</button>
+          <div class="paper-abstract" id="abstract-task-assignment" hidden>
+            Workers with the same job title often perform vastly different tasks, but how do differences in task assignment affect career advancement? We examine this question using data from an engineering analytics platform on tasks assigned to software engineers, merged with LinkedIn data on workers' career trajectories. Using an instrumental variables approach, we exploit quasi-random variation in task assignment arising from fluctuations in teams' task portfolios at the time workers join. Assignment to more complex tasks in the first quarter of employment significantly increases the likelihood of promotion within two years, consistent with greater opportunities for human capital accumulation and ability signaling. We explore the role of task assignment in gender disparities, documenting substantial gender differences in task assignment and persistent gender gaps in promotion.
+          </div>
         </p>
         
         <p><span class="paper-title">AI as a Career Advisor</span>
           <br>
           with Katelyn Cranney and Leo Saenger
           <br>
+          <button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-career-advisor">Abstract</button>
+          <div class="paper-abstract" id="abstract-career-advisor" hidden>
+            We examine the role of AI in the job search process in partnership with CareerVillage, a nonprofit organization that provides AI-powered career guidance through its conversational tool, COACH. Specifically, we study whether AI can improve career decision-making by facilitating structured self-reflection, helping workers understand and articulate their skills and preferences, and evaluate tradeoffs across career options. We begin by using observational data to characterize how workers use COACH, finding that many conversations center on self-reflection. We are currently conducting a randomized controlled trial with unemployed job seekers to estimate the effects of AI-assisted self-reflection on career decision-making, employment outcomes, and longer-run job satisfaction.
+          </div>
         </p>
         
         <p><span class="paper-title">The Labor Market Effects of AI: Current Evidence and Future Directions</span>
           <br>
           with Erik Brynjolfsson and Bharat Chandar
           <br>
+          <button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-labor-market-ai">Abstract</button>
+          <div class="paper-abstract" id="abstract-labor-market-ai" hidden>
+            We synthesize the emerging theoretical and empirical literature on the labor market impacts of generative AI. We organize the empirical evidence into three broad approaches: adoption-based studies comparing early and late adopters, exposure-based studies comparing occupations with differing levels of AI exposure, and survey-based evidence on workers' and firms' responses to AI. While exposure-based studies generally document declines in employment in AI-exposed occupations, the evidence from adoption-based studies and surveys is more mixed. We develop a framework for interpreting these findings by distinguishing between anticipation effects, automation effects, and the roles of partial and general equilibrium adjustments.
+          </div>
         </p>
 
         </div>
       </section>
 
-      <section class="misc-section">
-        <h3 class="section-title">Policy and Writing</h3>
-        <div class="section-text">
+      <section class="misc-section" id="policy-section">
+        <h3 class="section-title section-toggle-heading">
+          <button
+            class="section-toggle-button"
+            type="button"
+            data-icon="plus-minus"
+            aria-expanded="false"
+            aria-controls="policy-content">
+            <span class="section-toggle-label">
+              <span class="section-toggle-icon" aria-hidden="true"></span>
+              <span>Policy and Writing</span>
+            </span>
+          </button>
+        </h3>
+        <div class="section-text" id="policy-content" hidden>
           <p>
             <a class="paper-title" href="https://socialfinance.org/insight/shaping-the-future-of-work-generative-ai-inequality-and-opportunity/">Shaping the Future of Work: Generative AI, Inequality, and Opportunity</a>
             <br>
@@ -100,14 +247,14 @@ layout: default
             <a class="paper-reference" href="https://orgchart.mit.edu/letters/welcoming-mit-values-statement">Announcement</a>
             <a class="paper-reference" href="https://thetech.com/2022/04/14/mit-values-statement">The Tech</a>
           </p>
-<!-- 
+
           <p>
             <a class="paper-title" href="https://thetech.com/2017/09/29/chomsky-reminiscing">Reflecting on Noam Chomsky’s 66 years at MIT</a>
             <br>
             with Whitney Zhang, September 2017
             <br>
             The Tech
-          </p> -->
+          </p>
         </div>
         
         <div class="section-text">
@@ -120,7 +267,99 @@ layout: default
         </a>
         
       </section>
+
+      <section class="misc-section" id="teaching-section">
+        <h3 class="section-title section-toggle-heading">
+          <button
+            class="section-toggle-button"
+            type="button"
+            data-icon="plus-minus"
+            aria-expanded="false"
+            aria-controls="teaching-content">
+            <span class="section-toggle-label">
+              <span class="section-toggle-icon" aria-hidden="true"></span>
+              <span>Teaching</span>
+            </span>
+          </button>
+        </h3>
+        <div class="section-text" id="teaching-content" hidden>
+          <p>I have taught a number of courses at the undergraduate and graduate level.</p>
+          
+          <p><span class="paper-title">Labor Economics</span>
+            <br>
+            ECON 980B Education in the Economy (UG)
+            <br>
+            with Claudia Goldin and Lawrence Katz, Spring 2024
+            <br> <br>
+
+            ECON 2330 History and Human Capital (Ph.D.)
+            <br>
+            with Claudia Goldin and Lawrence Katz, Spring 2024
+            <br> <br>
+
+            ECON 980X The Economics of Work and Family (UG)
+            <br>
+            with Claudia Goldin, Fall 2023
+          </p>
+
+          <p><span class="paper-title">Econometrics</span>
+            <br>
+            Causal Inference in Economics and Medicine (MD)
+            <br>
+            with Joshua Angrist, Fall 2025
+            <br> <br>
+
+            Math Camp: Econometrics (Ph.D.)
+            <br>
+            with Jennifer Walsh, Summer 2023
+            
+          </p>
+
+        </div>
+      </section>
     </div>
   </div>
 
 </main>
+
+<script>
+  (() => {
+    const sectionButtons = document.querySelectorAll(".section-toggle-button");
+    const abstractButtons = document.querySelectorAll(".abstract-toggle");
+
+    if (!sectionButtons.length && !abstractButtons.length) {
+      return;
+    }
+
+    sectionButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const contentId = button.getAttribute("aria-controls");
+        const content = contentId ? document.getElementById(contentId) : null;
+
+        if (!content) {
+          return;
+        }
+
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", String(!isExpanded));
+        content.hidden = isExpanded;
+      });
+    });
+
+    abstractButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const abstractId = button.getAttribute("aria-controls");
+        const abstract = abstractId ? document.getElementById(abstractId) : null;
+
+        if (!abstract) {
+          return;
+        }
+
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", String(!isExpanded));
+        button.textContent = isExpanded ? "Abstract" : "Hide abstract";
+        abstract.hidden = isExpanded;
+      });
+    });
+  })();
+</script>
